@@ -1,0 +1,17 @@
+﻿
+<h1>Все претеденты</h1>
+<h3>@Model.currCategory</h3>
+<div class="row mt-5 mb-2">
+    @{
+        foreach (var person in Model.GetAllPersons)
+        {
+            <div class="col-lg-4">
+                <img class="img-thumbnail" src ="@person.Img" alt="@person.Name"/>
+                <h2>Name: @person.Name</h2>
+                <p>@person.AboutMyself</p>
+                <p>Age: @person.Age.ToString()</p>
+                <p><a class="btn btn-warning" href="#">Подробнее</a></p>
+            </div>
+        }
+    }
+</div>
