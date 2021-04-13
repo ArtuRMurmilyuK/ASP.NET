@@ -1,0 +1,12 @@
+E:\repos\ASP.NET\Candidates\CandidatesData\bin\Debug\netcoreapp3.1\CandidatesData.deps.json
+E:\repos\ASP.NET\Candidates\CandidatesData\bin\Debug\netcoreapp3.1\CandidatesData.runtimeconfig.json
+E:\repos\ASP.NET\Candidates\CandidatesData\bin\Debug\netcoreapp3.1\CandidatesData.runtimeconfig.dev.json
+E:\repos\ASP.NET\Candidates\CandidatesData\bin\Debug\netcoreapp3.1\CandidatesData.dll
+E:\repos\ASP.NET\Candidates\CandidatesData\bin\Debug\netcoreapp3.1\CandidatesData.pdb
+E:\repos\ASP.NET\Candidates\CandidatesData\obj\Debug\netcoreapp3.1\CandidatesData.csprojAssemblyReference.cache
+E:\repos\ASP.NET\Candidates\CandidatesData\obj\Debug\netcoreapp3.1\CandidatesData.AssemblyInfoInputs.cache
+E:\repos\ASP.NET\Candidates\CandidatesData\obj\Debug\netcoreapp3.1\CandidatesData.AssemblyInfo.cs
+E:\repos\ASP.NET\Candidates\CandidatesData\obj\Debug\netcoreapp3.1\CandidatesData.csproj.CoreCompileInputs.cache
+E:\repos\ASP.NET\Candidates\CandidatesData\obj\Debug\netcoreapp3.1\CandidatesData.dll
+E:\repos\ASP.NET\Candidates\CandidatesData\obj\Debug\netcoreapp3.1\CandidatesData.pdb
+E:\repos\ASP.NET\Candidates\CandidatesData\obj\Debug\netcoreapp3.1\CandidatesData.genruntimeconfig.cache
