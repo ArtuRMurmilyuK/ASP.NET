@@ -34,3 +34,6 @@ E:\repos\ASP.NET\PartyInvites\PartyInvites\obj\Debug\netcoreapp2.1\PartyInvites.
 E:\repos\ASP.NET\PartyInvites\PartyInvites\obj\Debug\netcoreapp2.1\PartyInvites.genruntimeconfig.cache
 E:\repos\ASP.NET\PartyInvites\PartyInvites\obj\Debug\netcoreapp2.1\PartyInvites.csproj.CopyComplete
 E:\repos\ASP.NET\PartyInvites\PartyInvites\obj\Debug\netcoreapp2.1\Razor\Views\Home\MyView.cshtml.g.cs
+E:\repos\ASP.NET\PartyInvites\PartyInvites\obj\Debug\netcoreapp2.1\Razor\Views\Home\RsvpForm.cshtml.g.cs
+E:\repos\ASP.NET\PartyInvites\PartyInvites\obj\Debug\netcoreapp2.1\Razor\Views\Home\Thanks.cshtml.g.cs
+E:\repos\ASP.NET\PartyInvites\PartyInvites\obj\Debug\netcoreapp2.1\Razor\Views\Home\ListResponses.cshtml.g.cs
