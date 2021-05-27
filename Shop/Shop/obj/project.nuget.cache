@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Vb9wgAb/QBXhKD9vTdo3ryphLEhThQpkyGIUtINJK2NVQz7KPPn9S19CSCgb4EFdJVVAQGfhd3P2THjAx7vTlA==",
+  "dgSpecHash": "3WSHuI3FC3IICBLukZ2HM/BneZl7rd0zpl79ZhifBaHyV16mpuwC+I7DFOMJCwZOER2ymJLXZ8HogSnJtqgFPg==",
   "success": true,
   "projectFilePath": "E:\\repos\\ASP.NET\\Shop\\Shop\\Shop.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\artur\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\artur\\.nuget\\packages\\json\\1.0.1\\json.1.0.1.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.7\\microsoft.aspnet.mvc.5.2.7.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.7\\microsoft.aspnet.razor.3.2.7.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
@@ -287,6 +289,16 @@
     "C:\\Users\\artur\\.nuget\\packages\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'JSON 1.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "libraryId": "JSON",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",
