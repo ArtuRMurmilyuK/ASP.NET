@@ -28,3 +28,4 @@ E:\repos\ASP.NET\Shop\Shop\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.cshtml
 E:\repos\ASP.NET\Shop\Shop\bin\Debug\netcoreapp2.1\dbsetting.json
 E:\repos\ASP.NET\Shop\Shop\obj\Debug\netcoreapp2.1\Razor\Views\Shared\AllCars.cshtml.g.cs
 E:\repos\ASP.NET\Shop\Shop\obj\Debug\netcoreapp2.1\Razor\Views\ShopCart\Index.cshtml.g.cs
+E:\repos\ASP.NET\Shop\Shop\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.cshtml.g.cs
