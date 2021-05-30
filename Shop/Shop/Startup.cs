@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Shop.Controllers;
 using Shop.Data;
 using Shop.Data.Interfaces;
 using Shop.Data.Models;
@@ -44,7 +46,13 @@ namespace Shop
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(name: "categoryFilter", template: "Car/{action}/{caregoty?}",
+                    defaults: new {Controller = "Car", action = "List"});
+            });
 
 
             using (var scope = app.ApplicationServices.CreateScope())
