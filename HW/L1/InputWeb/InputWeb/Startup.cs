@@ -30,11 +30,33 @@ namespace InputWeb
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
+                app.Run(async (context) =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
+                    context.Response.ContentType = "text/html; charset=utf-8";
+
+                    // если обращение идет по адресу "/postuser", получаем данные формы
+                    if (context.Request.Path == "/postuser")
+                    {
+                        var form = context.Request.Form;
+                        string login = form["login"];
+                        string password = form["password"];
+
+                        if(login =="login" && password == "qwerty")
+                        {
+                            await context.Response.WriteAsync($"<div><p>ƒобро пожаловать!</p><p>");
+                        }
+                        else
+                        {
+                            await context.Response.WriteAsync("Ќеверный пароль");
+                        }
+                        
+                    }
+                    else
+                    {
+                        await context.Response.SendFileAsync("html/index.html");
+                    }
                 });
-            });
+            });            
         }
     }
 }
