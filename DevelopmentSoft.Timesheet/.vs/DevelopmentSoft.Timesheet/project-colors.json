@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a5b339d2-41d8-4569-8d19-ce2e8f3efedc": {
+      "ProjectGuid": "a5b339d2-41d8-4569-8d19-ce2e8f3efedc",
+      "DisplayName": "Timesheet.Api",
+      "ColorIndex": 0
+    },
+    "f21d6853-6d6d-40a7-9369-d640ce71f01e": {
+      "ProjectGuid": "f21d6853-6d6d-40a7-9369-d640ce71f01e",
+      "DisplayName": "Timesheet.Tests",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
