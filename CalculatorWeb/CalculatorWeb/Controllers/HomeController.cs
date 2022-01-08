@@ -33,5 +33,29 @@ namespace CalculatorWeb.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpPost]
+        public string Operations(int numberA, int numberB, string act)
+        {
+            double res = 0;
+
+            switch (act)
+            {
+                case "+":
+                    res = numberA + numberB;
+                    break;
+                case "-":
+                    res = numberA - numberB;
+                    break;
+                case "*":
+                    res = numberA * numberB;
+                    break;
+                case "/":
+                    res = numberA / numberB;
+                    break;
+            }
+
+            return $"Result: {res}";
+        }
     }
 }
