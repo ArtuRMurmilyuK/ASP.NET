@@ -5,7 +5,7 @@ using SneakerShop.Data.Models;
 
 namespace SneakerShop.Data.Mocks
 {
-    public class MockSneakers : IAllSneakers
+    public class MockSneakers : ISneakers
     {
         private readonly ISneakersCategory _sneakersCategory = new MockCategory();
         
@@ -24,7 +24,6 @@ namespace SneakerShop.Data.Mocks
                         IsFavorite = true,
                         Available = true,
                         Category = _sneakersCategory.AllCategories.First(),
-                        SizeSneakers = {Amount = 2, Size = 46}
                     },
                     new Sneaker
                     {
@@ -35,7 +34,6 @@ namespace SneakerShop.Data.Mocks
                         IsFavorite = true,
                         Available = true,
                         Category = _sneakersCategory.AllCategories.First(),
-                        SizeSneakers = {Amount = 2, Size = 46}
                     },new Sneaker
                     {
                         Name = "Nike Air221",
@@ -45,7 +43,6 @@ namespace SneakerShop.Data.Mocks
                         IsFavorite = true,
                         Available = true,
                         Category = _sneakersCategory.AllCategories.Last(),
-                        SizeSneakers = {Amount = 2, Size = 46}
                     },
                 };
             }

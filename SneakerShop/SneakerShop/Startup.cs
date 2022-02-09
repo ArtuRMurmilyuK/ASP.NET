@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SneakerShop.Data.Interfaces;
+using SneakerShop.Data.Mocks;
 
 namespace SneakerShop
 {
@@ -17,6 +19,10 @@ namespace SneakerShop
         //for plugins
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc(options => options.EnableEndpointRouting = false);
+
+            services.AddTransient<ISneakers, MockSneakers>();
+            services.AddTransient<ISneakersCategory, MockCategory>();
             services.AddMvc();
         }
 
@@ -26,7 +32,9 @@ namespace SneakerShop
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();//404
             app.UseStaticFiles();
+
             app.UseMvcWithDefaultRoute();
+
         }
     }
 }

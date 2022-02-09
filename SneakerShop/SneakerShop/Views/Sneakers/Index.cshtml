@@ -1,0 +1,10 @@
+﻿<h1>@Model.CurrentCategory</h1>
+@{
+	foreach (var sneaker in Model.GetSneakers)
+	{
+		<div>
+			<h2>Модель: @sneaker.Name</h2>
+			<p>Цена: @sneaker.Price.ToString("C")</p>
+		</div>	
+	}
+}
