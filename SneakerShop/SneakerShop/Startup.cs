@@ -1,19 +1,26 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using SneakerShop.Data;
 using SneakerShop.Data.Interfaces;
 using SneakerShop.Data.Mocks;
+using Microsoft.EntityFrameworkCore;
+using SneakerShop.Data.Repository;
 
 namespace SneakerShop
 {
     public class Startup
     {
+
+        private IConfigurationRoot _confSting;
+
+        public Startup(IHostingEnvironment hostEvn)
+        {
+            _confSting = new ConfigurationBuilder().SetBasePath(hostEvn.ContentRootPath).AddJsonFile("dbsettings.json")
+                .Build();
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         //for plugins
@@ -21,8 +28,9 @@ namespace SneakerShop
         {
             services.AddMvc(options => options.EnableEndpointRouting = false);
 
-            services.AddTransient<ISneakers, MockSneakers>();
-            services.AddTransient<ISneakersCategory, MockCategory>();
+            services.AddDbContext<AppDBContent>(options => options.UseSqlServer(_confSting.GetConnectionString("DefaultConnection")));
+            services.AddTransient<ISneakers, SneakerRepository>();
+            services.AddTransient<ISneakersCategory, CategoryRepository>();
             services.AddMvc();
         }
 
@@ -32,9 +40,16 @@ namespace SneakerShop
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();//404
             app.UseStaticFiles();
-
             app.UseMvcWithDefaultRoute();
 
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                AppDBContent content = scope.ServiceProvider.GetRequiredService<AppDBContent>();
+                DBObjects.Initial(content);
+            }
+            {
+                
+            }
         }
     }
 }
