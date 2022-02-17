@@ -5,12 +5,12 @@ namespace SneakerShop.Data
 {
     public class AppDBContent : DbContext 
     {
-        public AppDBContent( DbContextOptions<AppDBContent> options) : base(options)
+        public AppDBContent( DbContextOptions<AppDBContent> options) : base(options) 
         {
-            
         }
 
-        public DbSet<Sneaker>  Sneakers {get; set; }
+        public DbSet<Sneaker> Sneakers {get; set; }
         public DbSet<Category> Categories {get; set; }
+        public DbSet<ShopCartItem> ShopCartItem {get; set; }
     }
 }

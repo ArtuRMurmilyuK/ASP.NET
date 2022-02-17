@@ -38,7 +38,7 @@ namespace SneakerShop.Migrations
                 {
                     table.PrimaryKey("PK_Sneakers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Sneakers_Categories_CategoryId",
+                        name: "FK_Sn eakers_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
