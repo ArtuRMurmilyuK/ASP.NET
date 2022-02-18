@@ -1,0 +1,12 @@
+﻿@model HomeViewModel
+
+<h1>Новые кроссовки</h1>
+<div class="row mt-5 mb-2">
+	@{
+		foreach (Sneaker sneaker in Model.FavSneakers)
+		{
+			@Html.Partial("ShowSneakers", sneaker);
+		}
+	}
+</div>
+

@@ -1,9 +1,9 @@
 ﻿<h1>@Model.CurrentCategory</h1>
 <div class="row mt-5 mb-2">
-@{
-	foreach (Sneaker sneaker in Model.GetSneakers)
-	{
-		@Html.Partial("ShowSneakers", sneaker)
+	@{
+		foreach (Sneaker sneaker in Model.GetSneakers)
+		{
+			@Html.Partial("ShowSneakers", sneaker)
+		}
 	}
-}
 </div>
