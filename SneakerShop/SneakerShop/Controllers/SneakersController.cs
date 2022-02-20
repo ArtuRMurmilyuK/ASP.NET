@@ -36,12 +36,12 @@ namespace SneakerShop.Controllers
                 //TODO: for UGG, NB and other
                 if (string.Equals("Adidas", category, StringComparison.OrdinalIgnoreCase))
                 {
-                    sneakers = _sneakers.Sneakers.Where(i => i.Category.CategoryName.Equals("Adidas")).OrderBy(i => i.Id);
+                    sneakers = _sneakers.Sneakers.Where(i => i.CategoryId == 1).OrderBy(i => i.Id);
                     currCategory = "Adidas";
                 }
                 if(string.Equals("Nike", category, StringComparison.OrdinalIgnoreCase))
                 {
-                    sneakers = _sneakers.Sneakers.Where(i => i.Category.CategoryName == category);
+                    sneakers = _sneakers.Sneakers.Where(i => i.CategoryId == 2).OrderBy(i => i.Id);
                     currCategory = "Nike";
                 }
             }

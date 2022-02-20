@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using SneakerShop.Data.Models;
 
 namespace SneakerShop.Data
@@ -10,6 +8,8 @@ namespace SneakerShop.Data
     {
         public static void Initial(AppDBContent content)
         {
+            //content.Database.EnsureDeleted();
+
             if (!content.Categories.Any())
             {
                 content.Categories.AddRange(Categories.Select(c => c.Value));
@@ -46,7 +46,27 @@ namespace SneakerShop.Data
                         Price = 1460,
                         IsFavorite = true,
                         Available = true,
-                        Category = Categories["Adidas"],
+                        Category = Categories["Nike"]
+                    },
+                    new Sneaker
+                    {
+                        Name = "Adidas",
+                        Season = "Лето",
+                        Img = "/img/ar99327.jpg",
+                        Price = 999,
+                        IsFavorite = true,
+                        Available = true,
+                        Category = Categories["Adidas"]
+                    },
+                    new Sneaker
+                    {
+                        Name = "Adidas 200",
+                        Season = "Лето",
+                        Img = "/img/ar99327.jpg",
+                        Price = 1,
+                        IsFavorite = true,
+                        Available = true,
+                        Category = Categories["Adidas"]
                     }
                     );
             }
@@ -63,8 +83,8 @@ namespace SneakerShop.Data
                 {
                     var list = new Category[]
                     {
-                        new Category {CategoryName = "Nike", Desc = "Модный найк"},
-                        new Category {CategoryName = "Adidas", Desc = "Adik for me"}
+                        new() {CategoryName = "Nike", Desc = "Модный найк"},
+                        new() {CategoryName = "Adidas", Desc = "Adik for me"}
                     };
 
                     _categories = new Dictionary<string, Category>();
