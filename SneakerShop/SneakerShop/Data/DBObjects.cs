@@ -46,7 +46,7 @@ namespace SneakerShop.Data
                         Price = 1460,
                         IsFavorite = true,
                         Available = true,
-                        Category = Categories["Nike"],
+                        Category = Categories["Adidas"],
                     }
                     );
             }
