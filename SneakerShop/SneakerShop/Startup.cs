@@ -33,6 +33,7 @@ namespace SneakerShop
             services.AddDbContext<AppDBContent>(options => options.UseSqlServer(_confSting.GetConnectionString("DefaultConnection")));
             services.AddTransient<ISneakers, SneakerRepository>();
             services.AddTransient<ISneakersCategory, CategoryRepository>();
+            services.AddTransient<IOrders, OrdersRepository>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => ShopCart.GetCart(sp));

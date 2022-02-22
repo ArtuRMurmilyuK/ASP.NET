@@ -12,5 +12,7 @@ namespace SneakerShop.Data
         public DbSet<Sneaker> Sneakers {get; set; }
         public DbSet<Category> Categories {get; set; }
         public DbSet<ShopCartItem> ShopCartItem {get; set; }
+        public DbSet<Order> Orders {get; set; }
+        public DbSet<OrderDetail> OrderDetail {get; set; }
     }
 }
