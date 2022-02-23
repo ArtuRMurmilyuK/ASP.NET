@@ -18,7 +18,7 @@ namespace SneakerShop.Data.Models
         public string ShopCartId { get; set; }
         public List<ShopCartItem> ListShopItems { get; set; }
 
-        //есть ли товар в корзине +1
+        // есть ли товар в корзине +1
         public static ShopCart GetCart(IServiceProvider services)
         {
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;

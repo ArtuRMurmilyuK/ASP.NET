@@ -4,7 +4,7 @@
 	@foreach (var el in Model.ShopCart.ListShopItems)
 	{
 		<div class="alert alert-warning mt-3">
-			<b>Кроссовки:</b>@el.Id<br/>
+			<b>Кроссовки:</b>@el.Sneaker.Name<br/>
 			<b>Price:</b>@el.Price.ToString("C")
 		</div>
 	}
