@@ -1,9 +1,7 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SneakerShop.Data.Interfaces;
 using SneakerShop.Data.Models;
-using SneakerShop.Data.Repository;
 using SneakerShop.ViewModels;
 
 namespace SneakerShop.Controllers
@@ -19,6 +17,7 @@ namespace SneakerShop.Controllers
             _shopCart = shopCart;
         }
 
+        //New list Sneakes or just add Sneakers.Name??
         public ViewResult Index()
         {
             var items = _shopCart.GetShopItems();
