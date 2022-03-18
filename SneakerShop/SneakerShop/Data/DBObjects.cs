@@ -84,7 +84,8 @@ namespace SneakerShop.Data
                     var list = new Category[]
                     {
                         new() {CategoryName = "Nike", Desc = "Модный найк"},
-                        new() {CategoryName = "Adidas", Desc = "Adik for me"}
+                        new() {CategoryName = "Adidas", Desc = "Adik for me"},
+                        new() {CategoryName = "NB", Desc = "NB for me"}
                     };
 
                     _categories = new Dictionary<string, Category>();

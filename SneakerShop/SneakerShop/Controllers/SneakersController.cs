@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SneakerShop.Data;
 using SneakerShop.Data.Interfaces;
 using SneakerShop.Data.Models;
@@ -73,10 +74,10 @@ namespace SneakerShop.Controllers
             }
         }
 
-        public IActionResult Create()
+        public IActionResult Create(Sneaker obj)
         {
             LoadCategory();
-            return View();
+            return View(obj);
         }
 
         [HttpPost]
@@ -84,11 +85,16 @@ namespace SneakerShop.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     if (obj.Id == 0)
                     { 
                         _appDBContent.Sneakers.Add(obj);
+                        await _appDBContent.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        _appDBContent.Entry(obj).State = EntityState.Modified;
                         await _appDBContent.SaveChangesAsync();
                     }
 
@@ -97,6 +103,25 @@ namespace SneakerShop.Controllers
                 return View();
             }
             catch (Exception ex)
+            {
+                return RedirectToAction("SneakersList");
+            }
+        }
+
+        public async Task<IActionResult> DeleteSneaker(int id)
+        {
+            try
+            {
+                var sneaker = await _appDBContent.Sneakers.FindAsync(id);
+                if (sneaker != null)
+                {
+                    _appDBContent.Sneakers.Remove(sneaker);
+                    await _appDBContent.SaveChangesAsync();
+                }
+
+                return RedirectToAction("SneakersList");
+            }
+            catch (Exception e)
             {
                 return RedirectToAction("SneakersList");
             }

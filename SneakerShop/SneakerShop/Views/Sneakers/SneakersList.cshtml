@@ -15,6 +15,7 @@
 	        @*<th>
                 @Html.DisplayNameFor(model => model.Id)
             </th>*@
+	        
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -36,15 +37,16 @@
             @*<th>
                 @Html.DisplayNameFor(model => model.CategoryId)
             </th>*@
-            <th></th>
+            
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
-			@*<td>
+        <tr>        
+	        @*<td>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>*@
+	        
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
@@ -66,10 +68,20 @@
            @* <td>
                 @Html.DisplayFor(modelItem => item.CategoryId)
             </td>*@
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
+	        <td>
+		        @Html.ActionLink("Edit", "Create", new
+		        {
+			        id=item.Id, 
+			        item.Name, 
+			        item.Price, 
+			        item.Season, 
+			        item.CategoryId, 
+			        item.Available, 
+			        item.Img, 
+			        item.IsFavorite
+		        }, new {@class="btn btn-success"}) |
+		        @Html.ActionLink("Delete", "DeleteSneaker", new { id=item.Id }, new {@class="btn btn-danger", onclick="return confirm('Do you really want to delete?')"})
+	        </td>
         </tr>
 }
     </tbody>
