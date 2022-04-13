@@ -1,0 +1,63 @@
+﻿@model SneakerShop.Data.Models.OrderDetail
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>OrderDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddOrderDetail">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+	        <div class="form-group">
+		        <input type="hidden" asp-for="Id"/>
+
+		        <label asp-for="Name" class="control-label"></label>
+		        <input asp-for="Name" class="form-control"/>
+		        <span asp-validation-for="Name" class="text-danger"></span>
+	        </div>
+	        <div class="form-group">
+		        <label asp-for="SneakerId" class="control-label"></label>
+		        <input asp-for="SneakerId" class="form-control" />
+		        <span asp-validation-for="SneakerId" class="text-danger"></span>
+	        </div>
+	        <div class="form-group">
+		        <label asp-for="OrderId" class="control-label"></label>
+		        <input asp-for="OrderId" class="form-control" />
+		        <span asp-validation-for="OrderId" class="text-danger"></span>
+	        </div>
+	        <div class="form-group">
+		        <label asp-for="Surname" class="control-label"></label>
+		        <input asp-for="Surname" class="form-control" />
+		        <span asp-validation-for="Surname" class="text-danger"></span>
+	        </div>
+            <div class="form-group">
+                <label asp-for="Adress" class="control-label"></label>
+                <input asp-for="Adress" class="form-control" />
+                <span asp-validation-for="Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+	        <div class="form-group">
+		        <label asp-for="SneakerName" class="control-label"></label>
+		        <input asp-for="SneakerName" class="form-control" />
+		        <span asp-validation-for="SneakerName" class="text-danger"></span>
+	        </div>
+	        <div class="form-group">
+		        <label asp-for="Price" class="control-label"></label>
+		        <input asp-for="Price" class="form-control" />
+		        <span asp-validation-for="Price" class="text-danger"></span>
+	        </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="OrderList" class="btn btn-outline-success">Orders List</a>
+                </div>
+        </form>
+    </div>
+</div>

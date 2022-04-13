@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SneakerShop.Data;
 using SneakerShop.Data.Interfaces;
 using SneakerShop.Data.Models;
@@ -61,6 +63,25 @@ namespace SneakerShop.Controllers
             catch (Exception ex)
             {
                 return View();
+            }
+        }
+
+        public async Task<IActionResult> DeleteOrder(int id)
+        {
+            try
+            {
+                var order = await _appDBContent.OrderDetail.FindAsync(id);
+                if (order != null)
+                {
+                    _appDBContent.Remove(order);
+                    await _appDBContent.SaveChangesAsync();
+                }
+
+                return RedirectToAction("OrderList");
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("OrderList");
             }
         }
     }
