@@ -29,7 +29,12 @@ namespace SneakerShop.Data.Repository
                {
                    SneakerId = el.Sneaker.Id,
                    OrderId = order.Id,
-                   Price = el.Sneaker.Price
+                   Price = el.Sneaker.Price,
+                   Adress = order.Adress,
+                   Name = order.Name,
+                   Phone = order.Phone,
+                   SneakerName = el.Sneaker.Name,
+                   Surname = order.Surname
                };
                _appDbContent.OrderDetail.Add(orderDetail); 
            }
