@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.Surname)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                @Html.DisplayNameFor(model => model.Phone)
             </th>
 	        <th>
 		        @Html.DisplayNameFor(model => model.Adress)
@@ -27,15 +27,16 @@
 	        <th>
 		        @Html.DisplayNameFor(model => model.SneakerName)
 	        </th>
+			<th>
+		        @Html.DisplayNameFor(model => model.Price)
+	        </th>
 	        <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
 	<tr>
-		<td>
-			@Html.ActionLink("Delete", "DeleteOrder", new {  id=item.Id }, new{@class = "btn btn-danger", onclick="return confirm('Do you really want to delete?')"})
-		</td>
+		
 		<td>
 			@Html.DisplayFor(modelItem => item.Name)
 		</td>
@@ -43,13 +44,19 @@
 			@Html.DisplayFor(modelItem => item.Surname)
 		</td>
 		<td>
-			@Html.DisplayFor(modelItem => item.Price)
+			@Html.DisplayFor(modelItem => item.Phone)
 		</td>
 		<td>
 			@Html.DisplayFor(modelItem => item.Adress)
 		</td>
 		<td>
 			@Html.DisplayFor(modelItem => item.SneakerName)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Price)
+		</td>
+		<td>
+			@Html.ActionLink("Delete", "DeleteOrder", new {  id=item.Id }, new{@class = "btn btn-danger", onclick="return confirm('Do you really want to delete?')"})
 		</td>
 	</tr>
 }
