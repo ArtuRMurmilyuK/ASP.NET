@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SneakerShop.Data.Models.Sneaker>
+﻿ @model IEnumerable<SneakerShop.Data.Models.Sneaker>
 
 @{
     ViewData["Title"] = "SneakersList";
@@ -27,6 +27,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.IsFavorite)
@@ -60,6 +63,9 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.IsFavorite)
             </td>
             <td>
@@ -74,6 +80,7 @@
 			        id=item.Id, 
 			        item.Name, 
 			        item.Price, 
+                    item.Size,
 			        item.Season, 
 			        item.CategoryId, 
 			        item.Available, 
