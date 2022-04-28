@@ -30,7 +30,7 @@ namespace SneakerShop.Data.Models
         [StringLength(15)]
         [Required(ErrorMessage = "Длина имени не менее 14 символов")]
         public string Phone { get; set; }
-
+        public int SneakerSizeOrder { get; set; }
         [BindNever]
         [ScaffoldColumn(false)]
         public DateTime OrderTime { get; set; }

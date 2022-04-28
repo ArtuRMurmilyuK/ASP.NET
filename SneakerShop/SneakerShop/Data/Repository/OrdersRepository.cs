@@ -34,7 +34,8 @@ namespace SneakerShop.Data.Repository
                    Name = order.Name,
                    Phone = order.Phone,
                    SneakerName = el.Sneaker.Name,
-                   Surname = order.Surname
+                   Surname = order.Surname,
+                   SneakerSize = order.SneakerSizeOrder
                };
                _appDbContent.OrderDetail.Add(orderDetail); 
            }

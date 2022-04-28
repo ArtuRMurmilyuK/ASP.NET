@@ -11,6 +11,7 @@
         public string Adress { get; set; }
         public string Phone { get; set; }
         public string SneakerName { get; set; }
+        public int SneakerSize { get; set; }
         public virtual Sneaker Sneaker { get; set; }
         public virtual Order Order { get; set; }
     }
