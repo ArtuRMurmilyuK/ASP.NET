@@ -13,6 +13,8 @@ namespace SneakerShop.Data.Models
         public bool IsFavorite { get; set; }
         public bool Available { get; set; }
         public int CategoryId { get; set; }
+        public string Size { get; set; }
+        public string Gender { get; set; }
         public virtual Category Category { get; set; }
         public SizeSneaker SizeSneakers { get; set; } 
     }
