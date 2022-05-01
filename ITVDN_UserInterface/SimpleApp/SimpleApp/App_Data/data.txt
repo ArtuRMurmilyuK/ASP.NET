@@ -1,6 +1,6 @@
-﻿1, Mobile Phone, 600
-2, Laptop, 3200
-3, Keyboard, 35
-4, Mouse, 10
-5, Pen, 1
-6, Notebook, 1
+﻿1, Mobile Phone, 600, Iphone 12s, 12
+2, Laptop, 3200, MacBook 2016, 10
+3, Keyboard, 35, Asus x53t, 2
+4, Mouse, 10, Mx15, 20
+5, Pen, 1, Blue, 100
+6, Notebook, 1, Black/White, 200

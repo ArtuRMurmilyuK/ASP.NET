@@ -23,6 +23,8 @@ namespace SimpleApp.Models
                 product.Id = Convert.ToInt32(items[0].Trim());
                 product.Name = items[1].Trim();
                 product.Price = Convert.ToDouble(items[2].Trim());
+                product.Description = items[3].Trim();
+                product.Count = Convert.ToInt32(items[4].Trim());
 
                 result.Add(product);
             }
