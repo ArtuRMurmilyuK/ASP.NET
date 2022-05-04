@@ -71,10 +71,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Available)
             </td>
-           @* <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
-            </td>*@
-	        <td>
+	        <td >
 		        @Html.ActionLink("Edit", "Create", new
 		        {
 			        id=item.Id, 
@@ -86,9 +83,12 @@
 			        item.Available, 
 			        item.Img, 
 			        item.IsFavorite
-		        }, new {@class="btn btn-success"}) |
-		        @Html.ActionLink("Delete", "DeleteSneaker", new { id=item.Id }, new {@class="btn btn-danger", onclick="return confirm('Do you really want to delete?')"})
+		        }, new {@class="btn btn-success "}) 
 	        </td>
+            
+            <td>
+                @Html.ActionLink("Delete", "DeleteSneaker", new { id=item.Id }, new {@class="btn btn-danger", onclick="return confirm('Do you really want to delete?')"})
+            </td>
         </tr>
 }
     </tbody>

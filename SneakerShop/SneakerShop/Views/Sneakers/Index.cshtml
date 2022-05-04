@@ -1,4 +1,7 @@
-﻿<h1>@Model.CurrentCategory</h1>
+﻿@{
+    ViewData["Title"] = @Model.CurrentCategory;
+}
+<h1>@Model.CurrentCategory</h1>
 <div class="row mt-5 mb-2">
 	@{
 		foreach (Sneaker sneaker in Model.GetSneakers)
