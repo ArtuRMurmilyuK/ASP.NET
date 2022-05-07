@@ -17,7 +17,6 @@ namespace SneakerShop.Controllers
             _shopCart = shopCart;
         }
 
-        //New list Sneakes or just add Sneakers.Name??
         public ViewResult Index()
         {
             var items = _shopCart.GetShopItems();

@@ -35,7 +35,7 @@ namespace SneakerShop.Controllers
 
             if (_shopCart.ListShopItems.Count == 0)
             {
-                ModelState.AddModelError("", "У вас должны быть товары!");
+                return RedirectToAction("Error");
             }
 
             if (ModelState.IsValid)
@@ -49,6 +49,12 @@ namespace SneakerShop.Controllers
         public IActionResult Complete()
         {
             ViewBag.Message = "Заказ успешно обработан";
+            return View();
+        }
+
+        public IActionResult Error()
+        {
+            ViewBag.Message = "У вас должны быть товары!";
             return View();
         }
 
