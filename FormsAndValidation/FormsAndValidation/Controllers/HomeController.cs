@@ -28,6 +28,39 @@ namespace FormsAndValidation.Controllers
             return View();
         }
 
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(RegistrationBildingModel model)
+        {
+            Debug.WriteLine(model.Name);
+            Debug.WriteLine(model.Surname);
+            Debug.WriteLine(model.Email);
+            Debug.WriteLine(model.Date);
+
+            if (model.Date.Day == 6 || model.Date.Day == 7)
+            {
+                ModelState.AddModelError(nameof(model.Date), "Нельзя записаться на выходной день");
+            }
+            else if(model.Date.Date == DateTime.Today.Date)
+            {
+                ModelState.AddModelError(nameof(model.Date), "Нельзя записаться на Сегодня");
+            }
+
+            if (ModelState.IsValid)
+            {
+                return View("Success");
+            }
+            else
+            {
+                return View(model);
+            }
+            
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
