@@ -71,6 +71,24 @@ namespace SneakerShop.Controllers
                 return View();
             }
         }
+        public IActionResult LogIn()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult LogIn(LogIn model)
+        {
+            if (model.Password == "PavlovStar")
+            {
+                return RedirectToAction("OrderList");
+            }
+            else
+            {
+                ModelState.AddModelError(nameof(model.Password), "Пароль не вірний");
+                return View(model);
+            }
+        }
 
         public async Task<IActionResult> DeleteOrder(int id)
         {

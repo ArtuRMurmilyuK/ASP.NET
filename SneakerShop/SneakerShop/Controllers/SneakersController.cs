@@ -60,6 +60,7 @@ namespace SneakerShop.Controllers
             return View(sneakerObj);
         }
 
+
         public IActionResult SneakersList()
         {
             try
@@ -71,6 +72,25 @@ namespace SneakerShop.Controllers
             catch (Exception e)
             {
                 return View();
+            }
+        }
+
+        public IActionResult LogIn()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult LogIn(LogIn model)
+        {
+            if (model.Password == "PavlovStar")
+            {
+                return RedirectToAction("SneakersList");
+            }
+            else
+            {
+                ModelState.AddModelError(nameof(model.Password), "Пароль не вірний");
+                return View(model);
             }
         }
 
