@@ -17,5 +17,8 @@ namespace FormsAndValidation.Models
         
         [Required]
         public DateTime Date { get; set; }
+        
+        [Required]
+        public string SelectItem { get; set; }
     }
 }

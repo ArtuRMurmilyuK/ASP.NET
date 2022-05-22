@@ -1,5 +1,6 @@
 ﻿using FormsAndValidation.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,9 @@ namespace FormsAndValidation.Controllers
 
         public IActionResult Register()
         {
+            string[] items = { "JavaScript", "C#", "Java", "Python", "Основы" };
+            SelectList selectList = new SelectList(items, items[2]);
+            ViewBag.SelectItems = selectList;
             return View();
         }
 
@@ -39,9 +43,14 @@ namespace FormsAndValidation.Controllers
             Debug.WriteLine(model.Name);
             Debug.WriteLine(model.Surname);
             Debug.WriteLine(model.Email);
-            Debug.WriteLine(model.Date);
+            Debug.WriteLine(model.Date.DayOfWeek);
+            Debug.WriteLine(model.SelectItem);
 
-            if (model.Date.Day == 6 || model.Date.Day == 7)
+            if(model.SelectItem == "Основы" && model.Date.DayOfWeek == DayOfWeek.Monday)
+            {
+                ModelState.AddModelError(nameof(model.SelectItem), "Курсы по Основе не проводятся в понедельник");
+            }
+            else if (model.Date.DayOfWeek == DayOfWeek.Saturday || model.Date.DayOfWeek == DayOfWeek.Sunday)
             {
                 ModelState.AddModelError(nameof(model.Date), "Нельзя записаться на выходной день");
             }
@@ -57,8 +66,7 @@ namespace FormsAndValidation.Controllers
             else
             {
                 return View(model);
-            }
-            
+            }   
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
