@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -47,6 +48,41 @@ namespace SneakerShop.Controllers
                 if(string.Equals("Nike", category, StringComparison.OrdinalIgnoreCase))
                 {
                     sneakers = _sneakers.Sneakers.Where(i => i.CategoryId == 2).OrderBy(i => i.Id);
+                    currCategory = "Nike";
+                }
+            }
+
+            var sneakerObj = new SneakersListViewModel
+            {
+                GetSneakers = sneakers,
+                CurrentCategory = currCategory
+            };
+
+            return View(sneakerObj);
+        }
+
+        [Route("Sneakers/Search/{category}")]
+        public ViewResult Search(string category, string size)
+        {
+            IEnumerable<Sneaker> sneakers = null;
+            string currCategory = "";
+
+            if (string.IsNullOrEmpty(category))
+            {
+                sneakers = _sneakers.Sneakers.OrderBy(i => i.Id);
+            }
+            else
+            {
+                //TODO: for UGG, NB and other
+                if (string.Equals("Adidas", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    sneakers = _sneakers.Sneakers.Where(i => i.CategoryId == 1).OrderBy(i => i.Id).Where(i => i.Size == size);
+                    
+                    currCategory = "Adidas";
+                }
+                if (string.Equals("Nike", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    sneakers = _sneakers.Sneakers.Where(i => i.CategoryId == 2).OrderBy(i => i.Id).Where(i => i.Size == size);
                     currCategory = "Nike";
                 }
             }

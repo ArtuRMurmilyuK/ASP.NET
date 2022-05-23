@@ -2,10 +2,6 @@
     ViewData["Title"] = @Model.CurrentCategory;
 }
 <h1>@Model.CurrentCategory</h1>
-<form method="POST">
-    <input type="text" name="size" /><br /><br />
-	<input type="submit" asp-controller="Sneakers" asp-action="Search" asp-route-category="@Model.CurrentCategory"  value="Пошук"/>
-</form>
 <div class="row mt-5 mb-2">
 	@{
 		foreach (Sneaker sneaker in Model.GetSneakers)
