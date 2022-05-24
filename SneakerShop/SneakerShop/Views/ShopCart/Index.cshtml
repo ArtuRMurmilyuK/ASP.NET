@@ -1,5 +1,7 @@
 ﻿@model ShopCartViewModel
-
+@{
+	int price = 0;
+}
 <div class="container">
 	@foreach (var el in Model.ShopCart.ListShopItems)
 	{
@@ -7,7 +9,10 @@
 			<b>Кроссовки:</b>@el.Sneaker.Name<br/>
 			<b>Price:</b>@el.Price.ToString("C")
 		</div>
+		price += el.Price;
 	}
+	<b>Всього: @price.ToString("C")</b>
+	
 	<hr/>
 	<a class="btn btn-danger mb-5" asp-controller="Order" asp-action="Checkout">Оплатить</a>
 </div>
