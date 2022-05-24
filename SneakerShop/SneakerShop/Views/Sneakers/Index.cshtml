@@ -3,9 +3,20 @@
 }
 <h1>@Model.CurrentCategory</h1>
 <form method="POST">
-    <input type="text" name="size" /><br /><br />
-	<input type="submit" asp-controller="Sneakers" asp-action="Search" asp-route-category="@Model.CurrentCategory"  value="Пошук"/>
+	<nobr>
+		<h2>
+		<input type="range" class="form-range h-25 w-25" id="idRange" min="36" max="45" value="36" name="size"/>
+		<label id="idValue" name="size"></label>
+		<input class="btn btn-outline-warning" type="submit" asp-controller="Sneakers" asp-action="Search" asp-route-category="@Model.CurrentCategory"  value="Пошук"/></h2>
+	</nobr>
+	<script src="~/lib/jquery/dist/jquery.js"></script>
+	<script>
+	$('#idRange').change(function(){
+		$('#idValue').text($('#idRange').val())
+	})
+	</script>
 </form>
+
 <div class="row mt-5 mb-2">
 	@{
 		foreach (Sneaker sneaker in Model.GetSneakers)
