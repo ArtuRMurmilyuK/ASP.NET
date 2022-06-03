@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -38,15 +39,15 @@ namespace SneakerShop.Controllers
             else
             {
                 //TODO: for UGG, NB and other
-                if (string.Equals("Adidas", category, StringComparison.OrdinalIgnoreCase))
+                if (string.Equals("Nike", category, StringComparison.OrdinalIgnoreCase))
                 {
                     sneakers = _sneakers.Sneakers.Where(i => i.CategoryId == 1).OrderBy(i => i.Id);
-                    currCategory = "Adidas";
+                    currCategory = "Nike";
                 }
-                if(string.Equals("Nike", category, StringComparison.OrdinalIgnoreCase))
+                if(string.Equals("Adidas", category, StringComparison.OrdinalIgnoreCase))
                 {
                     sneakers = _sneakers.Sneakers.Where(i => i.CategoryId == 2).OrderBy(i => i.Id);
-                    currCategory = "Nike";
+                    currCategory = "Adidas";
                 }
             }
 
@@ -72,16 +73,16 @@ namespace SneakerShop.Controllers
             else
             {
                 //TODO: for UGG, NB and other
-                if (string.Equals("Adidas", category, StringComparison.OrdinalIgnoreCase))
+                if (string.Equals("Nike", category, StringComparison.OrdinalIgnoreCase))
                 {
                     sneakers = _sneakers.Sneakers.Where(i => i.CategoryId == 1).OrderBy(i => i.Id).Where(i => i.Size.Contains(size));
                     
-                    currCategory = "Adidas";
+                    currCategory = "Nike";
                 }
-                if (string.Equals("Nike", category, StringComparison.OrdinalIgnoreCase))
+                if (string.Equals("Adidas", category, StringComparison.OrdinalIgnoreCase))
                 {
                     sneakers = _sneakers.Sneakers.Where(i => i.CategoryId == 2).OrderBy(i => i.Id).Where(i => i.Size.Contains(size));
-                    currCategory = "Nike";
+                    currCategory = "Adidas";
                 }
             }
 
@@ -169,10 +170,10 @@ namespace SneakerShop.Controllers
                 var sneaker = await _appDBContent.Sneakers.FindAsync(id);
                 if (sneaker != null)
                 {
-                    _appDBContent.Sneakers.Remove(sneaker);
+                    _appDBContent.Remove(sneaker);
                     await _appDBContent.SaveChangesAsync();
                 }
-
+                
                 return RedirectToAction("SneakersList");
             }
             catch (Exception e)
