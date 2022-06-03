@@ -7,12 +7,20 @@
 	{
 		<div class="alert alert-warning mt-3">
 			<b>Кроссовки:</b>@el.Sneaker.Name<br/>
-			<b>Price:</b>@el.Price.ToString("C")
+			<b>Price:</b>@el.Price.ToString("C")<br/>
+			<a class="btn btn-danger " asp-controller="Order" asp-action="Checkout">Удалить из корзины</a>
 		</div>
 		price += el.Price;
 	}
+	@if(Model.ShopCart.ListShopItems.Count == 0){
+		<h2 class="text-center">Добавьте товар, корзина пуста😕 </h2>
+	}
+	else
+	{
 	<b>Всього: @price.ToString("C")</b>
 	
 	<hr/>
 	<a class="btn btn-danger mb-5" asp-controller="Order" asp-action="Checkout">Оплатить</a>
+	}
+	
 </div>
