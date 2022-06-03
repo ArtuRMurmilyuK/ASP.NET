@@ -5,10 +5,11 @@
 <div class="container">
 	@foreach (var el in Model.ShopCart.ListShopItems)
 	{
+		
 		<div class="alert alert-warning mt-3">
 			<b>Кроссовки:</b>@el.Sneaker.Name<br/>
 			<b>Price:</b>@el.Price.ToString("C")<br/>
-			<a class="btn btn-danger " asp-controller="Order" asp-action="Checkout">Удалить из корзины</a>
+			<a class="btn btn-danger " asp-controller="ShopCart" asp-action="DeleteForCart" asp-route-id="@el.ShopCartId">Удалить из корзины</a>
 		</div>
 		price += el.Price;
 	}

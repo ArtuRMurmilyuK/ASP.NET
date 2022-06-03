@@ -36,5 +36,12 @@ namespace SneakerShop.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public RedirectToActionResult DeleteForCart(string id)
+        {
+            _shopCart.RemoveToCart(id);
+            
+            return RedirectToAction("Index");
+        }
     }
 }

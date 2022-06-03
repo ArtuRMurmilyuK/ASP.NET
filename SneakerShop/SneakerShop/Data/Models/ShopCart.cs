@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using System.Diagnostics;
 
 namespace SneakerShop.Data.Models
 {
@@ -40,6 +41,16 @@ namespace SneakerShop.Data.Models
             });
 
             _appDbContent.SaveChanges();
+        }
+        public void RemoveToCart(string id)
+        {
+			var element = _appDbContent.ShopCartItem.Where(x => x.ShopCartId == id).FirstOrDefault();
+            Debug.WriteLine(element.Id);
+			if (element != null)
+            {
+                _appDbContent.ShopCartItem.Remove(element);
+                _appDbContent.SaveChanges();
+            }
         }
 
         public List<ShopCartItem> GetShopItems()
